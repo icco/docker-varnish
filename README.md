@@ -72,6 +72,16 @@ You can change the path of the VCL configuration file:
 $ docker run --name my-running-varnish -e "VCL_CONFIG=/root/custom.vcl" -v /path/to/custom.vcl:/root/custom.vcl:ro -d my-varnish
 ```
 
+You can also change the ports used in the Dockerfile.
+
+```
+FROM tripviss/varnish
+
+ENV VARNISH_PORT 8080
+ENV VARNISH_DAEMON_OPTS "additional varnish options here"
+EXPOSE 8080
+```
+
 # How to install VMODs (Varnish Modules)
 
 [Varnish Modules](https://www.varnish-cache.org/vmods) are extensions written for Varnish Cache.
